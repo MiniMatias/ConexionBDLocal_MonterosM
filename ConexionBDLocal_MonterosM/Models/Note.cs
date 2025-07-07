@@ -11,3 +11,4 @@ public class Note
 
     public DateTime Date { get; set; }
 }
+
