@@ -1,0 +1,32 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConexionBDLocal_MonterosM.MainPage"
+             Title="Notas">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Entry x:Name="noteEntry" Placeholder="Escribe una nota..." />
+        <Button Text="Guardar Nota" Clicked="OnSaveClicked" />
+
+        <CollectionView x:Name="notesCollection">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Eliminar"
+                                           BackgroundColor="Red"
+                                           Invoked="OnDeleteClicked" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Border Stroke="LightGray" StrokeThickness="1" Padding="10" Margin="5">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Text}" FontAttributes="Bold" />
+                                <Label Text="{Binding Date}" FontSize="10" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
